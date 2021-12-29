@@ -42,16 +42,4 @@ void Tree::printTheTree(Node *ptr)
     printTheTree(ptr->left);
     cout << "Data: " << ptr->data << endl;
     printTheTree(ptr->right);
-    // if(ptr->left != NULL)
-    // {
-    //     cout <<  "/"
-    //             "/"
-    //            "/" << endl;
-    // }
-    // if (ptr->right != NULL)
-    // {
-    //     cout << "\\"
-    //              "\\"
-    //              " \\" << endl;
-    // }
 }
