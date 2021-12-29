@@ -1,66 +1,17 @@
 #include <iostream>
+#include "tree.hpp"
 using namespace std;
-
-struct Node
-{
-    Node *left;
-    Node *right;
-    int data;
-};
-
-Node *root = NULL;
-
-Node *createNewNode(int data)
-{
-    Node *newNode = new Node;
-    newNode->data = data;
-    newNode->left = nullptr;
-    newNode->right = nullptr;
-    return newNode;
-}
-
-void insertIntoTree(Node **ptr, int data)
-{
-    if (*ptr == NULL)
-    {
-        *ptr = createNewNode(data);
-    }
-    else if ((*ptr)->data >= data)
-    {
-        insertIntoTree( &(*ptr)->left, data);
-    }
-    else
-    {
-        insertIntoTree(&(*ptr)->right, data);
-    }
-}
-void printTheTree(Node *ptr)
-{
-    if (ptr == NULL)
-        return;
-    printTheTree(ptr->left);
-    cout << "Data: " << ptr->data << endl;
-    printTheTree(ptr->right);
-    // if(ptr->left != NULL)
-    // {
-    //     cout <<  "/"
-    //             "/"
-    //            "/" << endl;
-    // }
-    // if (ptr->right != NULL)
-    // {
-    //     cout << "\\"
-    //              "\\"
-    //              " \\" << endl;
-    // }
-}
 
 int main()
 {
-    insertIntoTree(&root, 20);
-    insertIntoTree(&root, 30);
-    insertIntoTree(&root, 40);
-    insertIntoTree(&root, 50);
-    printTheTree(root);
+    Tree tree;
+    tree.insert(30);
+    tree.insert(20);
+    tree.insert(40);
+    tree.insert(50);
+    tree.insert(60);
+    tree.insert(80);
+    tree.print();
+
     return 0;
 }

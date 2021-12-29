@@ -5,9 +5,11 @@ CC = g++
 
 all: main
 
-main: main.o 
-	$(CC) main.o -o main
+main: main.o tree.o
+	$(CC) main.o tree.o -o main
 main.o: main.cpp
 	$(CC) -c main.cpp
+tree.o: tree.cpp tree.hpp
+	$(CC) -c tree.cpp
 clean:
 	rm -f core *.o main 
